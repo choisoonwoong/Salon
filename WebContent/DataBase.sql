@@ -18,7 +18,7 @@ create table monthh( month varchar2(20));	-- 1-12월
 create table Coupon(
 c_number number,				-- 고객번호
 name varchar2(50),				-- 고객이름
-phone varchar2(20), 			-- 핸드폰번호
+phone varchar2(26), 			-- 핸드폰번호
 coupon number(20),				-- 방문횟수
 memo varchar2(100));			-- 고객메모
 
@@ -26,7 +26,7 @@ memo varchar2(100));			-- 고객메모
 create table company(
 c_number number,				-- 고객번호
 c_name varchar2(50),			-- 고객이름
-c_phone varchar2(25),			-- 핸드폰번호
+c_phone varchar2(26),			-- 핸드폰번호
 c_payment varchar2(20),			-- 결제수단
 c_money number,					-- 금액
 c_date date,					-- 등록날짜
@@ -38,7 +38,7 @@ c_number number,				-- 고객번호
 c_name varchar2(50),			-- 고객이름
 c_coupon number,				-- 서비스 카운트
 c_date date,					-- 등록날짜
-phone varchar(20) primary key,	-- 핸드폰번호
+phone varchar(26) primary key,	-- 핸드폰번호
 c_count number,					-- 서비스받은 횟수
 c_memo varchar2(100),			-- 고객메모
 c_payment varchar2(20)			-- 결제수단
