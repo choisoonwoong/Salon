@@ -6,7 +6,7 @@ password varchar2(20));			-- 비밀번호
 /* 지출내역 리스트 */
 create table Expenses (
 no number(10),					-- 지출내역번호
-name varchar2(40),				-- 지출내역명
+name varchar2(50),				-- 지출내역명
 money number,					-- 지출금액
 orderdate date,					-- 지출날짜
 memo varchar2(100));			-- 지출메모
@@ -17,7 +17,7 @@ create table monthh( month varchar2(20));	-- 1-12월
 /* 쿠폰 테이블 (방문횟수 카운트용) */
 create table Coupon(
 c_number number,				-- 고객번호
-name varchar2(20),				-- 고객이름
+name varchar2(50),				-- 고객이름
 phone varchar2(20), 			-- 핸드폰번호
 coupon number(20),				-- 방문횟수
 memo varchar2(100));			-- 고객메모
@@ -35,7 +35,7 @@ c_memo varchar2(300));			-- 고객메모
 /* 쿠폰 테이블 (서비스 횟수 관리용) */
 create table coupon2 (
 c_number number,				-- 고객번호
-c_name varchar2(20),			-- 고객이름
+c_name varchar2(50),			-- 고객이름
 c_coupon number,				-- 서비스 카운트
 c_date date,					-- 등록날짜
 phone varchar(20) primary key,	-- 핸드폰번호
