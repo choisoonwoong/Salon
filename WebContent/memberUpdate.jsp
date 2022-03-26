@@ -35,8 +35,8 @@ function input_check () {
 		update.money.focus();
 		return;
 	}
-	if (document.update.payment.value != '현금' && document.update.payment.value != '카드') {
-		alert("결제수단은 현금 또는 카드로만 입력하세요.");
+	if (document.update.payment.value != '현금' && document.update.payment.value != '카드' && document.update.payment.value != '서비스') {
+		alert("결제수단은 현금, 카드, 서비스 로만 입력하세요.");
 		update.payment.focus();
 		return;
 	}

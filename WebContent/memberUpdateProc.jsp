@@ -46,45 +46,55 @@
 	pstmt3.setString(5, phone2);
 	pstmt3.setString(6, c_number);
 	pstmt3.executeUpdate();
+	pstmt3.close();
 	%>
 	
 	<%
-	String sql2 = "update coupon set phone=?, name=?, memo=? where phone=?";
+	String sql2 = "update coupon set phone=?, name=? where phone=?";
 	PreparedStatement pstmt2 = con.prepareStatement(sql2);
 	pstmt2.setString(1, phone);
 	pstmt2.setString(2, name);
-	pstmt2.setString(3, memo);
-	pstmt2.setString(4, phone2);
+	pstmt2.setString(3, phone2);
 	pstmt2.executeUpdate();
+	pstmt2.close();
 	%>
 	
 	<%
-	String sql = "update company set c_name=?, c_phone=?, c_memo=? where c_phone=?";
+	String sql6 = "update coupon set memo=? where phone=? and c_number=?";
+	PreparedStatement pstmt6 = con.prepareStatement(sql6);
+	pstmt6.setString(1, memo);
+	pstmt6.setString(2, phone2);
+	pstmt6.setString(3, number);
+	pstmt6.executeUpdate();
+	pstmt6.close();
+	%>
+	
+	<%
+	String sql = "update company set c_name=?, c_phone=? where c_phone=?";
 	PreparedStatement pstmt = con.prepareStatement(sql);
 	pstmt.setString(1, name);
 	pstmt.setString(2, phone);
-	pstmt.setString(3, memo);
-	pstmt.setString(4, phone2);
+	pstmt.setString(3, phone2);
 	pstmt.executeUpdate();
+	pstmt.close();
 	%>
 	
-		<%
-	String sql5 = "update company set c_money=?, c_payment=? where c_phone=? and c_number=?";
+	<%
+	String sql5 = "update company set c_money=?, c_payment=?, c_memo=?  where c_number=?";
 	PreparedStatement pstmt5 = con.prepareStatement(sql5);
 	pstmt5.setString(1, money);
 	pstmt5.setString(2, payment);
-	pstmt5.setString(3, phone2);
+	pstmt5.setString(3, memo);
 	pstmt5.setString(4, number);
 	pstmt5.executeUpdate();
+	pstmt5.close();
 	%>
 
-	
 	<script>
 	alert("수정에 성공했습니다.");
 	location.href="nameSelect.jsp";
 	</script>
-	
-	<%  pstmt.close(); rs.close(); con.close(); pstmt2.close(); pstmt3.close(); pstmt4.close(); pstmt5.close();
+	<% rs.close(); con.close();
 	
 	}catch (Exception e) { %>
 	<script>

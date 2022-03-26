@@ -17,11 +17,22 @@ function insert_check () {
 		insert.name.focus();
 		return;
 	}
+    if (document.insert.name.value.indexOf(" ") >= 0) {
+        alert("고객명에 공백을 사용할 수 없습니다.")
+        insert.name.focus()
+        return false;
+    }
 	if (document.insert.phone1.value == ''){
 		alert("핸드폰번호를 입력하세요.");
 		insert.phone1.focus();
 		return;
 	}
+	var phone1 = /^[0-9]{1,}$/;
+    if (!phone1.test(document.insert.phone1.value)) {
+        alert("핸드폰 번호는 숫자로 입력하세요.");
+        insert.phone1.focus();
+        return;
+    }
 	if (document.insert.payment.value == '0'){
 		alert("결제수단을 선택하세요.");
 		insert.payment.focus();
@@ -60,9 +71,8 @@ String phone = request.getParameter("phone");
 <td align="center" width="200" height="50"> <font color = "black"><strong><font color="red">*</font>고객명</strong></font> </td>
 <td align="center"> <input type="text" name="name" id="zero" value="<%=name%>">
 
-<select id = "changeMember" onchange="member(this.value);">
+<select>
 <option value="회원">회원</option>
-<option value="비회원">비회원</option>
 </select> </td> </tr>
 
 <tr>
@@ -73,27 +83,16 @@ String phone = request.getParameter("phone");
 </tr>
 
 
-<script>
-/* 비회원 선택시 자동으로 value값 입력 */
-var member = function(value){
-	$("#zero").val(value);
-	$("#zero2").val("0");
-	$("#zero3").val("0");
-	$("#zero4").val("0");
-	$("#zero5").val("카드");
-	$("#money").val("9000");
-}
-</script>
-
 <tr>
 <td align="center" width="200" height="50"> <strong><font color="red">*</font>현금/카드</strong> </td>
 <td align="center" width="200" height="50">
 
 
-<select name="payment" id="zero5">
+<select name="payment" id = "changePayment" onchange="check(this.value);">
 <option value="0">--선택--</option>
 <option value="현금">현금</option>
 <option value="카드">카드</option>
+<option value="서비스">서비스</option>
 </select> </td> </tr>
 
 <tr>
@@ -124,6 +123,12 @@ while (rs.next()) {
 /* 추가한 스타일 이름 선택시 등록한 금액 value값 자동 입력 */
 var choice = function(value){
 	$("#money").val(value); }
+</script>
+
+<script>
+/* 결제수단 선택시 value값 0 자동 입력 */
+var check = function(value){
+	$("#money").val("0"); }
 </script>
 
 

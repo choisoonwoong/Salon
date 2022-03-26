@@ -54,10 +54,12 @@ document.login.submit();
             <li><a href="styleSelect.jsp" style="color: #fff;">스타일 수정/삭제</a></li>
             <li><a href="stylerank.jsp" style="color: #fff;">스타일별 매출조회</a></li>
         </ul></li>
-                 <li class="menu5"> <strong>지출내역 관리</strong>
+                 <li class="menu5"> <strong>매장 관리</strong>
     	<ul class="menu6_s submenu">
     	    <li><a href="ExpensesInsert.jsp" style="color: #fff;">지출내역 등록</a></li>
             <li><a href="ExpensesSelect.jsp" style="color: #fff;">지출내역 리스트</a></li>
+            <li><a href="comment.jsp" style="color: #fff;">특이사항 등록</a></li>
+            <li><a href="commentSelect.jsp" style="color: #fff;">특이사항 리스트</a></li>
         </ul></li>
 
 <br>
@@ -112,10 +114,12 @@ document.login.submit();
            <li><a href="styleSelect.jsp" style="color: #fff;">스타일 수정/삭제</a></li>
             <li><a href="stylerank.jsp" style="color: #fff;">스타일별 매출조회</a></li>
         </ul></li>
-                 <li class="menu5"> <strong>지출내역 관리</strong>
+                 <li class="menu5"> <strong>매장 관리</strong>
     	<ul class="menu6_s submenu">
     	    <li><a href="ExpensesInsert.jsp" style="color: #fff;">지출내역 등록</a></li>
             <li><a href="ExpensesSelect.jsp" style="color: #fff;">지출내역 리스트</a></li>
+            <li><a href="comment.jsp" style="color: #fff;">특이사항 등록</a></li>
+            <li><a href="commentSelect.jsp" style="color: #fff;">특이사항 리스트</a></li>
         </ul></li>
 
 <br>

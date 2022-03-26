@@ -66,6 +66,7 @@ pstmt2.setString(4, payment);
 pstmt2.executeUpdate();
 pstmt2.close();
 %>
+
 <%
 if (payment.equals("카드")) {
 sql5 = "update coupon2 set c_coupon=c_coupon-1, c_date = sysdate where phone =?";
@@ -90,7 +91,13 @@ location.href="memberInsert.jsp";
 alert("11번 이상 방문으로 서비스 대상자입니다. \n 고객검색 -> 쿠폰사용 -> 방금 입력된 매출삭제를 진행하세요!");
 location.href="memberInsert.jsp";
 </script>
-<%} %>
+
+<%} else if (payment.equals("서비스")) {%>
+<script>
+alert("서비스 고객이 등록되었습니다.");
+location.href="memberInsert.jsp";
+</script>
+<% }%>
 
 <%
 } catch (Exception e) {
@@ -124,6 +131,13 @@ location.href="memberInsert.jsp";
 alert("고객등록이 완료되었습니다. 카드 고객이라 적립되지 않습니다.");
 location.href="memberInsert.jsp";
 </script>
-<%}} %>
+
+<% } else if  (payment.equals("서비스")) {%>
+<script>
+alert("서비스 고객이 등록되었습니다.");
+location.href="memberInsert.jsp";
+</script>
+
+<%}}%>
 </body>
 </html>

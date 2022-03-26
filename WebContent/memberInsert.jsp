@@ -10,28 +10,51 @@
 <body>
 <form method="post" name="insert" action="memberInsertProc.jsp">
 <script>
-/* 고객 입력 null값 체크 */
+/* 고객 입력 null값 및 유효성 체크 */
 function insert_check () {
 	if (document.insert.name.value == ''){
 		alert("고객명을 입력하세요.");
 		insert.name.focus();
 		return;
 	}
+    if (document.insert.name.value.indexOf(" ") >= 0) {
+        alert("고객명에 공백을 사용할 수 없습니다.")
+        insert.name.focus()
+        return false;
+    }
 	if (document.insert.phone1.value == ''){
 		alert("핸드폰번호를 입력하세요.");
 		insert.phone1.focus();
 		return;
 	}
+	var phone1 = /^[0-9]{1,}$/;
+    if (!phone1.test(document.insert.phone1.value)) {
+        alert("핸드폰 번호는 숫자로 입력하세요.");
+        insert.phone1.focus();
+        return;
+    }
 	if (document.insert.phone2.value == ''){
 		alert("핸드폰번호를입력하세요.");
 		insert.phone2.focus();
 		return;
 	}
+	var phone2 = /^[0-9]{1,}$/;
+    if (!phone2.test(document.insert.phone2.value)) {
+        alert("핸드폰 번호는 숫자로 입력하세요.");
+        insert.phone2.focus();
+        return;
+    }
 	if (document.insert.phone3.value == ''){
 		alert("핸드폰번호를 입력하세요.");
 		insert.phone3.focus();
 		return;
 	}
+	var phone3 = /^[0-9]{1,}$/;
+    if (!phone3.test(document.insert.phone3.value)) {
+        alert("핸드폰 번호는 숫자로 입력하세요.");
+        insert.phone3.focus();
+        return;
+    }
 	if (document.insert.payment.value == '0'){
 		alert("결제수단을 선택하세요.");
 		insert.payment.focus();
@@ -63,6 +86,7 @@ function phone_pass() {
 		document.insert.money.focus();
 	}
 }
+
 </script>
 
 <%@ include file ="header.jsp" %>
@@ -139,10 +163,14 @@ while (rs.next()) {
 <td align="center" width="200" height="50"> <input type="text" name="money" id="money"> </td>
 </tr>
 
+<input type="hidden" name="style" id="style">
+
 <script>
 /* 추가한 스타일 이름 선택시 등록한 금액 value값 자동 입력 */
 var choice = function(value){
-	$("#money").val(value); }
+	$("#money").val(value); 
+	}
+	
 </script>
 
 

@@ -62,8 +62,7 @@ String m2 = null; /* 카드 총 금액 null 체크용 */
 	switch (input) {
 	case "two" :
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	String sql =          
-			"select (select count(c_number) from company where c_date between to_date(?,'YYYY-MM-DD') and to_date(?, 'yyyy-mm-dd-hh')+0.99999), " +
+	String sql = "select (select count(c_number) from company where c_date between to_date(?,'YYYY-MM-DD') and to_date(?, 'yyyy-mm-dd-hh')+0.99999), " +
 			"(select count(*) from company where c_payment='카드' and c_date between to_date(?,'YYYY-MM-DD') and to_date(?, 'yyyy-mm-dd-hh')+0.99999), " +
 			"(select count(*) from company where c_payment='현금' and c_date between to_date(?,'YYYY-MM-DD') and to_date(?, 'yyyy-mm-dd-hh')+0.99999), " +
 			"(select to_char(sum(c_money),'999,999,999,999') from company where c_payment='카드' and c_date between to_date(?,'YYYY-MM-DD') and to_date(?, 'yyyy-mm-dd-hh')+0.99999), "+

@@ -10,7 +10,6 @@
 <body>
 <header class="logo">
 <h2>미스터 쌀롱 매출관리</h2>
-
 </header>
 </body>
 </html>

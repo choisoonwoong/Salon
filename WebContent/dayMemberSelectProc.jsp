@@ -93,6 +93,7 @@ rs.next();
 		link = "./memberUpdate.jsp?number="+number+"&phonee="+phone;
 		String link2 = "./couponService.jsp?number="+number;
 		String link3 = "./memberDelete.jsp?phone="+phone+"&number="+number+"&payment="+payment+"&cc="+cc;
+		String link4 = "./memberInsert2.jsp?phone="+phone+"&name="+name;
 		String A = null; /* memo값 복사용  */
 		String m = null; /* memo값 null 체크용 */
 		A=memo;
@@ -120,7 +121,7 @@ i++; /* 순번 1씩증가 */
 <tr>
 <td align="center"> <strong> <%= i %> </strong></td>
 <td align="center" height="7"><strong><a href = "<%=link%>"> <font color = "#9095e9"> <%= number %></font></a></strong></td>
-<td align="center"> <strong> <%= name %> </strong></td>
+<td align="center"> <strong> <a href="<%=link4%>"><font color="#9095e9"><%= name %></font></a> </strong></td>
 <td align="center"> <strong> <%= phone %></strong></td>
 <td align="center"> <strong><%= payment %></strong></td>
 <td align="center"> <strong><%= money %></strong></td>

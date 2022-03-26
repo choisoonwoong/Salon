@@ -77,7 +77,13 @@ pstmt4.close();
 	<script>
 	alert("고객이 삭제되었습니다.");
 	location.href="nameSelect.jsp"
-	</script>	
+	</script>
+	
+<%} else if (payment.equals("서비스")) {%>
+	<script>
+	alert("고객이 삭제되었습니다.");
+	location.href="nameSelect.jsp"
+	</script>
 	
 <%} if (count == 0) {%>
 <%
